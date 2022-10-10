@@ -6,7 +6,7 @@ Created on Mon Oct 10 18:39:00 2022
 """
 from tkinter import*
 from tkinter import ttk
-from googletrans import Translator
+from googletrans import LANGUAGES
 
 root = Tk()
 root.geometry("800x700")
@@ -31,8 +31,20 @@ Entertext_area.place(relx=0.2,rely=0.45,anchor=CENTER)
 Outputtext_area=Text(root,bg="LightBlue1",fg="#030140",font=("times",15,"bold"),height=10,wrap=WORD,width=50,padx=15,pady=10,bd=2)
 Outputtext_area.place(relx=0.75,rely=0.45,anchor=CENTER)
 
-root.mainloop()
+language = list(LANGUAGES.values())
 
+Text_dropdown = ttk.Combobox(state="readonly",background="LightBlue1",value=language)
+
+Output_dropdown = ttk.Combobox(state="readonly",background="LightBlue1",value=language)
+
+Text_dropdown.set("english")
+
+Text_dropdown.place(relx=0.25,rely=0.2,anchor=CENTER)
+Output_dropdown.place(relx=0.75,rely=0.2,anchor=CENTER)
+
+btn=Button(root,text=" TRANSLATE ",bg="DeepSkyBlue2",fg="#030140",pady=10,width=10,font=("times",15,"bold"))
+btn.place(relx=0.48,rely=0.75,anchor=CENTER)
+root.mainloop()
 
 
 
